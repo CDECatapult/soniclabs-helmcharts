@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "casemanager.fullname" . }}-config
+  labels:
+    {{- include "casemanager.labels" . | nindent 4 }}
+data:
+  APP_DEBUG: {{ .Values.config.debug | quote }}
+  APP_LOG_LEVEL: {{ .Values.config.logLevel | quote }}
+  POSTGRES_HOST: {{ include "casemanager.postgresql.fullname" . }}
+  POSTGRES_DB: {{ .Values.postgresql.auth.database | quote }}
+  TAM_GUI_HOST: {{ .Values.config.guiHost | quote }}
+  TAM_GUI_PORT: {{ .Values.config.guiPort | quote }}
+  TAM_CONFIG_MANAGER_HOST: {{ .Values.config.cmaHost | quote }}
+  TAM_CONFIG_MANAGER_PORT: {{ .Values.config.cmaPort | quote }}
+  TAM_CASE_MANAGER_HOST: {{ .Values.config.camHost | quote }}
+  TAM_CASE_MANAGER_PORT: {{ .Values.config.camPort | quote }}
+  TAM_TEST_MANAGER_HOST: {{ .Values.config.tmaHost | quote }}
+  TAM_TEST_MANAGER_PORT: {{ .Values.config.tmaPort | quote }}
+  TAM_RESULTS_MANAGER_HOST: {{ .Values.config.rmaHost | quote }}
+  TAM_RESULTS_MANAGER_PORT: {{ .Values.config.rmaPort | quote }}
+  TAM_API_GATEWAY_HOST: {{ .Values.config.apgHost | quote }}
+  TAM_API_GATEWAY_PORT: {{ .Values.config.apgPort | quote }}
+  TAM_DEPLOY_MANAGER_HOST: {{ .Values.config.dmaHost | quote }}
+  TAM_DEPLOY_MANAGER_PORT: {{ .Values.config.dmaPort | quote }}
