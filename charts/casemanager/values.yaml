@@ -31,7 +31,7 @@ image:
   repository: ghcr.io/cdecatapult/soniclabs-casemanager
   pullPolicy: Always
   tag: latest
-  pullSecrets: ['ghcr-pat']
+  pullSecrets: ['soniclabs']
 
 autoscaling:
   enabled: false
