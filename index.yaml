@@ -3,6 +3,24 @@ entries:
   casemanager:
   - apiVersion: v2
     appVersion: 0.1.1
+    created: "2023-06-15T08:20:33.059438772Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ^12.1.14
+    description: A generated Helm Chart for Soniclabs T&M casemanager
+    digest: f2bd769801c24829b4bf3f280cf9f6cd56fd30e3c48ccb9126c783fb5ae23649
+    maintainers:
+    - name: cdecatapult
+      url: cdecatapult.github.io/soniclabs-helmcharts
+    name: casemanager
+    type: application
+    urls:
+    - https://github.com/CDECatapult/soniclabs-helmcharts/releases/download/casemanager-0.0.3/casemanager-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: 0.1.1
     created: "2023-06-14T14:50:00.527176412Z"
     dependencies:
     - condition: postgresql.enabled
@@ -37,4 +55,4 @@ entries:
     urls:
     - https://github.com/CDECatapult/soniclabs-helmcharts/releases/download/casemanager-0.0.1/casemanager-0.0.1.tgz
     version: 0.0.1
-generated: "2023-06-14T14:50:00.527190912Z"
+generated: "2023-06-15T08:20:33.059454272Z"
