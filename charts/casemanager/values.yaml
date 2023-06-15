@@ -8,7 +8,7 @@ postgresql:
 config:
   replicaCount: 1
   appPort: 8000
-  type: NodePort
+  type: LoadBalancer
   nodePort: 30313
   debug: "True"
   logLevel: DEBUG
