@@ -73,4 +73,23 @@ entries:
     urls:
     - https://github.com/CDECatapult/soniclabs-helmcharts/releases/download/casemanager-0.0.1/casemanager-0.0.1.tgz
     version: 0.0.1
-generated: "2023-06-15T09:10:09.196855142Z"
+  testmanager:
+  - apiVersion: v2
+    appVersion: 0.1.1
+    created: "2023-06-15T14:32:40.759025431Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ^12.1.14
+    description: A generated Helm Chart for Soniclabs T&M testmanager
+    digest: e8e3616815b7f065c9e98f10f51e1c311f1dcb7e2b160b3b2becddbb8386b91e
+    maintainers:
+    - name: cdecatapult
+      url: cdecatapult.github.io/soniclabs-helmcharts
+    name: testmanager
+    type: application
+    urls:
+    - https://github.com/CDECatapult/soniclabs-helmcharts/releases/download/testmanager-0.0.1/testmanager-0.0.1.tgz
+    version: 0.0.1
+generated: "2023-06-15T14:32:40.759040732Z"
