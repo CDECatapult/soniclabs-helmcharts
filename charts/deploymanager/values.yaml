@@ -1,0 +1,45 @@
+postgresql:
+  enabled: true
+  auth:
+    username: tamuser
+    password: tampassword
+    database: deploymanager
+
+config:
+  replicaCount: 1
+  appPort: 8000
+  type: LoadBalancer
+  nodePort: 30315
+  debug: "True"
+  logLevel: DEBUG
+  guiHost: portal
+  guiPort: 8000
+  cmaHost: configmanager
+  cmaPort: 8000
+  camHost: casemanager
+  camPort: 8000
+  tmaHost: testmanager
+  tmaPort: 8000
+  rmaHost: resultsmanager
+  rmaPort: 8000
+  apgHost: apigateway
+  apgPort: 8000
+  dmaHost: deploymanager
+  dmaPort: 8000
+
+image:
+  repository: ghcr.io/cdecatapult/soniclabs-deploymanager
+  pullPolicy: Always
+  tag: latest
+  pullSecrets: ['soniclabs']
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+
+serviceAccount:
+  create: false
+  annotations: {}
+  name: ""

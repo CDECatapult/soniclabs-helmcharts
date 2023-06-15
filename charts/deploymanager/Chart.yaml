@@ -1,0 +1,14 @@
+apiVersion: v2
+name: deploymanager
+appVersion: 0.1.1
+description: A generated Helm Chart for Soniclabs T&M deploymanager
+version: 0.0.1
+type: application
+maintainers:
+  - name: cdecatapult
+    url: cdecatapult.github.io/soniclabs-helmcharts
+dependencies:
+  - name: postgresql
+    version: '^12.1.14'
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
