@@ -92,6 +92,25 @@ entries:
     urls:
     - https://github.com/CDECatapult/soniclabs-helmcharts/releases/download/deploymanager-0.0.1/deploymanager-0.0.1.tgz
     version: 0.0.1
+  resultsmanager:
+  - apiVersion: v2
+    appVersion: 0.1.1
+    created: "2023-06-21T14:12:28.8458013Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ^12.1.14
+    description: A generated Helm Chart for Soniclabs T&M resultsmanager
+    digest: cb2d4fac4927d7a577a788742f13cf460c7cce4bd7a8012c1d5165767e498a13
+    maintainers:
+    - name: cdecatapult
+      url: cdecatapult.github.io/soniclabs-helmcharts
+    name: resultsmanager
+    type: application
+    urls:
+    - https://github.com/CDECatapult/soniclabs-helmcharts/releases/download/resultsmanager-0.0.1/resultsmanager-0.0.1.tgz
+    version: 0.0.1
   testmanager:
   - apiVersion: v2
     appVersion: 0.1.1
@@ -129,4 +148,4 @@ entries:
     urls:
     - https://github.com/CDECatapult/soniclabs-helmcharts/releases/download/testmanager-0.0.1/testmanager-0.0.1.tgz
     version: 0.0.1
-generated: "2023-06-15T15:54:26.558473463Z"
+generated: "2023-06-21T14:12:28.845822401Z"
