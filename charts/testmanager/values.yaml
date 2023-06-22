@@ -9,7 +9,7 @@ config:
   replicaCount: 1
   appPort: 8000
   type: LoadBalancer
-  nodePort: 30314
+  nodePort: 30324
   debug: "True"
   logLevel: DEBUG
   guiHost: portal
