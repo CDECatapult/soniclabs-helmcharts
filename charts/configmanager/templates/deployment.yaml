@@ -30,7 +30,7 @@ spec:
             - containerPort: {{ .Values.config.appPort }}
           livenessProbe:
             httpGet:
-              path: /api/dma/healthchecks/readiness
+              path: /api/cma/healthchecks/readiness
               port: {{ .Values.config.appPort }}
             initialDelaySeconds: 15
             timeoutSeconds: 15
