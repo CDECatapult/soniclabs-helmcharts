@@ -6,3 +6,4 @@ A collection of [helm](https://helm.sh) charts created by Digital Catapult for i
 * [testmanager](charts/testmanager/Chart.yaml) - Deploy the Test Manager microservice
 * [deploymanager](charts/deploymanager/Chart.yaml) - Deploy the Deploy Manager microservice
 * [resultsmanager](charts/resultsmanager/Chart.yaml) - Deploy the Results Manager microservice
+* [configmanager](charts/configmanager/Chart.yaml) - Deploy the Config Manager microservice
