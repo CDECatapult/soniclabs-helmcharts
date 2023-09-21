@@ -13,8 +13,8 @@ data:
   TAM_GUI_PORT: {{ .Values.config.guiPort | quote }}
   TAM_CONFIG_MANAGER_HOST: {{ .Values.config.cmaHost | quote }}
   TAM_CONFIG_MANAGER_PORT: {{ .Values.config.cmaPort | quote }}
-  TAM_CASE_MANAGER_HOST: {{ .Values.config.camHost | quote }}
-  TAM_CASE_MANAGER_PORT: {{ .Values.config.camPort | quote }}
+  TAM_SUITE_MANAGER_HOST: {{ .Values.config.smaHost | quote }}
+  TAM_SUITE_MANAGER_PORT: {{ .Values.config.smaPort | quote }}
   TAM_TEST_MANAGER_HOST: {{ .Values.config.tmaHost | quote }}
   TAM_TEST_MANAGER_PORT: {{ .Values.config.tmaPort | quote }}
   TAM_RESULTS_MANAGER_HOST: {{ .Values.config.rmaHost | quote }}

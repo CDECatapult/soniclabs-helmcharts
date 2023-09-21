@@ -9,15 +9,15 @@ config:
   replicaCount: 1
   appPort: 8000
   type: LoadBalancer
-  nodePort: 30332
+#   nodePort: 30332
   debug: "True"
   logLevel: DEBUG
   guiHost: portal
   guiPort: 8000
   cmaHost: configmanager
   cmaPort: 8000
-  camHost: casemanager
-  camPort: 8000
+  smaHost: suitemanager
+  smaPort: 8000
   tmaHost: testmanager
   tmaPort: 8000
   rmaHost: resultsmanager
