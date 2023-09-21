@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "casemanager.name" -}}
+{{- define "suitemanager.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "casemanager.fullname" -}}
+{{- define "suitemanager.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "casemanager.chart" -}}
+{{- define "suitemanager.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "casemanager.labels" -}}
-helm.sh/chart: {{ include "casemanager.chart" . }}
-{{ include "casemanager.selectorLabels" . }}
+{{- define "suitemanager.labels" -}}
+helm.sh/chart: {{ include "suitemanager.chart" . }}
+{{ include "suitemanager.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "casemanager.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "casemanager.name" . }}
+{{- define "suitemanager.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "suitemanager.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "casemanager.serviceAccountName" -}}
+{{- define "suitemanager.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "casemanager.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "suitemanager.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
@@ -65,7 +65,7 @@ Create the name of the service account to use
 Create a default fully qualified postgresql name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 */}}
-{{- define "casemanager.postgresql.fullname" -}}
+{{- define "suitemanager.postgresql.fullname" -}}
 {{- if .Values.config.externalPostgresql -}}
 {{ .Values.config.externalPostgresql | trunc 63 | trimSuffix "-" -}}
 {{- else if not ( .Values.postgresql.enabled ) -}}
@@ -81,7 +81,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{/*
 Conditionally populate imagePullSecrets if present in the context
 */}}
-{{- define "casemanager.imagePullSecrets" -}}
+{{- define "suitemanager.imagePullSecrets" -}}
   {{- if (not (empty .Values.image.pullSecrets)) }}
 imagePullSecrets:
     {{- range .Values.image.pullSecrets }}

@@ -3,7 +3,7 @@ postgresql:
   auth:
     username: tamuser
     password: tampassword
-    database: casemanager
+    database: suitemanager
 
 config:
   replicaCount: 1
@@ -16,7 +16,7 @@ config:
   guiPort: 8000
   cmaHost: configmanager
   cmaPort: 8000
-  camHost: casemanager
+  camHost: suitemanager
   camPort: 8000
   tmaHost: testmanager
   tmaPort: 8000
@@ -28,7 +28,7 @@ config:
   dmaPort: 8000
 
 image:
-  repository: ghcr.io/cdecatapult/soniclabs-casemanager
+  repository: ghcr.io/cdecatapult/soniclabs-suitemanager
   pullPolicy: Always
   tag: latest
   pullSecrets: ['soniclabs']

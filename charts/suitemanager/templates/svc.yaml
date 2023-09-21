@@ -1,10 +1,10 @@
-{{- $fullName := include "casemanager.fullname" . -}}
+{{- $fullName := include "suitemanager.fullname" . -}}
 apiVersion: v1
 kind: Service
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "casemanager.labels" . | nindent 4 }}
+    {{- include "suitemanager.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.config.type }}
   ports:
@@ -14,4 +14,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    name: {{ include "casemanager.fullname" . }}-app
+    name: {{ include "suitemanager.fullname" . }}-app

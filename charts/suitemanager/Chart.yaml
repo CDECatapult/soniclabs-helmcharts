@@ -1,8 +1,8 @@
 apiVersion: v2
-name: casemanager
+name: suitemanager
 appVersion: 0.1.1
-description: A generated Helm Chart for Soniclabs T&M casemanager
-version: 0.0.4
+description: A generated Helm Chart for Soniclabs T&M suitemanager
+version: 0.0.5
 type: application
 maintainers:
   - name: cdecatapult
