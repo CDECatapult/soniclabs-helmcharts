@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "casemanager.fullname" . }}-app
+  name: {{ include "suitemanager.fullname" . }}-app
   labels:
-    {{- include "casemanager.labels" . | nindent 4 }}
+    {{- include "suitemanager.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.config.replicaCount }}
   selector:
     matchLabels:
-      name: {{ include "casemanager.fullname" . }}-app
+      name: {{ include "suitemanager.fullname" . }}-app
   template:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
         checksum/secret: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
       labels:
-        name: {{ include "casemanager.fullname" . }}-app
+        name: {{ include "suitemanager.fullname" . }}-app
     spec:
-      {{- include "casemanager.imagePullSecrets" . | indent 6 }}
+      {{- include "suitemanager.imagePullSecrets" . | indent 6 }}
       initContainers:
-        - name: {{ include "casemanager.fullname" . }}-init
+        - name: {{ include "suitemanager.fullname" . }}-init
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           command: ['sleep', '60']
       containers:
-        - name: {{ include "casemanager.fullname" . }}-app
+        - name: {{ include "suitemanager.fullname" . }}-app
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           ports:
@@ -37,9 +37,9 @@ spec:
             periodSeconds: 15
           envFrom:
           - configMapRef:
-              name: {{ include "casemanager.fullname" . }}-config
+              name: {{ include "suitemanager.fullname" . }}-config
           - secretRef:
-              name: {{ include "casemanager.fullname" . }}-secret
+              name: {{ include "suitemanager.fullname" . }}-secret
           env:
             - name: HOST_IP
               valueFrom:
