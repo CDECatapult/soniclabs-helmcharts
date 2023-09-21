@@ -310,6 +310,25 @@ entries:
     urls:
     - https://github.com/CDECatapult/soniclabs-helmcharts/releases/download/resultsmanager-0.0.1/resultsmanager-0.0.1.tgz
     version: 0.0.1
+  suitemanager:
+  - apiVersion: v2
+    appVersion: 0.1.1
+    created: "2023-09-21T13:55:42.648903282Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ^12.1.14
+    description: A generated Helm Chart for Soniclabs T&M suitemanager
+    digest: cca26dadb3a40874c568f6e0444b99e8739c6e30e808d036acdcd4d77b1744b7
+    maintainers:
+    - name: cdecatapult
+      url: cdecatapult.github.io/soniclabs-helmcharts
+    name: suitemanager
+    type: application
+    urls:
+    - https://github.com/CDECatapult/soniclabs-helmcharts/releases/download/suitemanager-0.0.5/suitemanager-0.0.5.tgz
+    version: 0.0.5
   testmanager:
   - apiVersion: v2
     appVersion: 0.1.1
@@ -365,4 +384,4 @@ entries:
     urls:
     - https://github.com/CDECatapult/soniclabs-helmcharts/releases/download/testmanager-0.0.1/testmanager-0.0.1.tgz
     version: 0.0.1
-generated: "2023-09-21T08:28:44.833639321Z"
+generated: "2023-09-21T13:55:42.648936282Z"
