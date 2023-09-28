@@ -20,11 +20,11 @@ spec:
       {{- include "configmanager.imagePullSecrets" . | indent 6 }}
       initContainers:
         - name: {{ include "configmanager.fullname" . }}-init
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: {{ template "configmanager.image" .Values.image }}
           command: ['sleep', '60']
       containers:
         - name: {{ include "configmanager.fullname" . }}-app
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: {{ template "configmanager.image" .Values.image }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           ports:
             - containerPort: {{ .Values.config.appPort }}

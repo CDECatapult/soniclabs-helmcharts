@@ -20,11 +20,11 @@ spec:
       {{- include "deploymanager.imagePullSecrets" . | indent 6 }}
       initContainers:
         - name: {{ include "deploymanager.fullname" . }}-init
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: {{ template "deploymanager.image" .Values.image }}
           command: ['sleep', '60']
       containers:
         - name: {{ include "deploymanager.fullname" . }}-app
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: {{ template "deploymanager.image" .Values.image }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           ports:
             - containerPort: {{ .Values.config.appPort }}

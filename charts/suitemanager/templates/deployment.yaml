@@ -20,11 +20,11 @@ spec:
       {{- include "suitemanager.imagePullSecrets" . | indent 6 }}
       initContainers:
         - name: {{ include "suitemanager.fullname" . }}-init
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: {{ template "suitemanager.image" .Values.image }}
           command: ['sleep', '60']
       containers:
         - name: {{ include "suitemanager.fullname" . }}-app
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: {{ template "suitemanager.image" .Values.image }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           ports:
             - containerPort: {{ .Values.config.appPort }}

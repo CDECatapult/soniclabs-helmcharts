@@ -28,7 +28,7 @@ config:
 image:
   repository: ghcr.io/cdecatapult/soniclabs-configmanager
   pullPolicy: Always
-  tag: latest
+  tag: sha256:ee67c1d87d9f0c9b4438cf6d10d025f9995200c36cdccb7544cb77bf99f225b3
   pullSecrets: ['soniclabs']
 
 autoscaling:

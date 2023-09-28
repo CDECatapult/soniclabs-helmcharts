@@ -20,11 +20,11 @@ spec:
       {{- include "resultsmanager.imagePullSecrets" . | indent 6 }}
       initContainers:
         - name: {{ include "resultsmanager.fullname" . }}-init
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: {{ template "resultsmanager.image" .Values.image }}
           command: ['sleep', '60']
       containers:
         - name: {{ include "resultsmanager.fullname" . }}-app
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: {{ template "resultsmanager.image" .Values.image }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           ports:
             - containerPort: {{ .Values.config.appPort }}
