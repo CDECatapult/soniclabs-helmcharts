@@ -20,11 +20,11 @@ spec:
       {{- include "testmanager.imagePullSecrets" . | indent 6 }}
       initContainers:
         - name: {{ include "testmanager.fullname" . }}-init
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: {{ template "testmanager.image" .Values.image }}
           command: ['sleep', '60']
       containers:
         - name: {{ include "testmanager.fullname" . }}-app
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: {{ template "testmanager.image" .Values.image }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           ports:
             - containerPort: {{ .Values.config.appPort }}
