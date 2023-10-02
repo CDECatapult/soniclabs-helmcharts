@@ -8,14 +8,14 @@ spec:
   replicas: {{ .Values.config.replicaCount }}
   selector:
     matchLabels:
-      name: {{ include "deploymanager.fullname" . }}-app
+      {{- include "deploymanager.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
         checksum/secret: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
       labels:
-        name: {{ include "deploymanager.fullname" . }}-app
+        {{- include "deploymanager.labels" . | nindent 8 }}
     spec:
       {{- include "deploymanager.imagePullSecrets" . | indent 6 }}
       initContainers:
