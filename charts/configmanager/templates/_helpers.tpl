@@ -89,3 +89,14 @@ imagePullSecrets:
     {{- end }}
   {{- end }}
 {{- end -}}
+
+{{/*
+Create the image path for the passed in image field
+*/}}
+{{- define "configmanager.image" -}}
+{{- if eq (substr 0 7 .tag) "sha256:" -}}
+{{- printf "%s@%s" .repository .tag -}}
+{{- else -}}
+{{- printf "%s:%s" .repository .tag -}}
+{{- end -}}
+{{- end -}}

@@ -30,7 +30,7 @@ config:
 image:
   repository: ghcr.io/cdecatapult/soniclabs-suitemanager
   pullPolicy: Always
-  tag: latest
+  tag: sha256:b28bbaae9d67c977d2155ed9fe7503e5561d8380ca55ef6980b6735140be6897
   pullSecrets: ['soniclabs']
 
 autoscaling:

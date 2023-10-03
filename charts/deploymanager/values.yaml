@@ -9,7 +9,7 @@ config:
   replicaCount: 1
   appPort: 8000
   type: LoadBalancer
-#   nodePort: 30311
+  nodePort: 30311
   debug: "True"
   logLevel: DEBUG
   guiHost: portal
@@ -30,7 +30,7 @@ config:
 image:
   repository: ghcr.io/cdecatapult/soniclabs-deploymanager
   pullPolicy: Always
-  tag: latest
+  tag: sha256:853dc8715d72807ab91a763a78feef6eff29d2b2200dba56c5d2bbf2c5457cd9
   pullSecrets: ['soniclabs']
 
 autoscaling:

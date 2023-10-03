@@ -10,8 +10,10 @@ spec:
   ports:
     - port: {{ .Values.config.appPort }}
       targetPort: {{ .Values.config.appPort }}
-#       nodePort: {{ .Values.config.nodePort }}
+      {{- if or (eq .Values.config.type "NodePort") (eq .Values.config.type "LoadBalancer") }}
+      nodePort: {{ .Values.config.nodePort }}
+      {{- end }}
       protocol: TCP
       name: http
   selector:
-    name: {{ include "suitemanager.fullname" . }}-app
+    {{- include "suitemanager.selectorLabels" . | nindent 4 }}
