@@ -1,43 +1,102 @@
-postgresql:
-  enabled: true
-  auth:
-    username: tamuser
-    password: tampassword
-    database: configmanager
-
+## @section ConfigManager Parameters
+##
 config:
+## @param config.replicaCount The amount of containers to run
   replicaCount: 1
-  appPort: 8000
+## @param config.type The type of service to create
   type: LoadBalancer
+  ## @param config.appPort The port to expose the service and application on
+  appPort: 8000
+  ## @param config.nodePort The nodePort to use if the the service type is LoadBalancer or NodePort
   nodePort: 30342
-  debug: "True"
+  ## @param config.commonAnnotations The annotations to set on the Config Manager application
+  commonAnnotations: {}
+  ## @param config.debug Whether or not to enable debug mode for the application
+  debug: "False"
+  ## @param config.logLevel The log level to use for the application
   logLevel: DEBUG
-  guiHost: portal
-  guiPort: 8000
-  smaHost: suitemanager
-  smaPort: 8000
-  tmaHost: testmanager
-  tmaPort: 8000
-  rmaHost: resultsmanager
-  rmaPort: 8000
-  apgHost: apigateway
-  apgPort: 8000
-  dmaHost: deploymanager
-  dmaPort: 8000
+  gui:
+    ## @param config.gui.host The hostname of the GUI service
+    host: portal
+    ## @param config.gui.port The port of the GUI service
+    port: 8000
+  sma:
+    ## @param config.sma.host The hostname of the Suite Manager service
+    host: suitemanager
+    ## @param config.sma.port The port of the Suite Manager service
+    port: 8000
+  tma:
+    ## @param config.tma.host The hostname of the Test Manager service
+    host: testmanager
+    ## @param config.tma.port The port of the Test Manager service
+    port: 8000
+  rma:
+    ## @param config.rma.host The hostname of the Results Manager service
+    host: resultsmanager
+    ## @param config.rma.port The port of the Results Manager service
+    port: 8000
+  apg:
+    ## @param config.apg.host The hostname of the API Gateway service
+    host: apigateway
+    ## @param config.apg.port The port of the API Gateway service
+    port: 8000
+  dma:
+    ## @param config.dma.host The hostname of the Deploy Manager service
+    host: deploymanager
+    ## @param config.dma.port The port of the Deploy Manager service
+    port: 8000
 
+## @section ConfigManager Image Parameters
 image:
+  ## @param image.repository The repository to use for the Config Manager image
   repository: ghcr.io/cdecatapult/soniclabs-configmanager
+  ## @param image.pullPolicy The pull policy to use for the Config Manager image
   pullPolicy: Always
-  tag: sha256:ee67c1d87d9f0c9b4438cf6d10d025f9995200c36cdccb7544cb77bf99f225b3
+  ## @param image.tag The tag to use for the Config Manager image
+  tag: latest
+  ## @param image.pullSecrets The pull secrets to use for the Config Manager image
   pullSecrets: ['soniclabs']
 
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-
-serviceAccount:
-  create: false
+## @section ConfigManager Ingress parameters
+##
+ingress:
+  ## @param ingress.enabled Whether or not to enable the ingress for the Config Manager application
+  enabled: true
+  ## @param ingress.annotations The annotations to set on the ingress for the Config Manager application
   annotations: {}
+  ## @param ingress.ingressClassName The ingress class to use for the Config Manager application
+  ingressClassName: ""
+  ## @param ingress.hostname The hostname to use for the Config Manager application
+  hostname: configmanager.local
+  ## @extra ingress.paths The paths to use for the Config Manager application
+  paths:
+  ## @param ingress.paths[0].path The path to use for the Config Manager application
+  ## @param ingress.paths[0].pathType The path type to use for the Config Manager application
+    - path: /api/cma
+      pathType: Prefix
+
+## @section ConfigManager ServiceAccount parameters
+serviceAccount:
+  ## @param serviceAccount.create Whether or not to create a service account for the Config Manager service
+  create: false
+  ## @param serviceAccount.annotations The annotations to use for the Config Manager service account
+  annotations: {}
+  ## @param serviceAccount.name The name of the service account to use for the Config Manager service
   name: ""
+
+## @section ConfigManager PostgreSQL parameters
+postgresql:
+  ## @param postgresql.enabled Whether or not to enable the PostgreSQL SubChart for the Config Manager service
+  enabled: true
+  ## @param postgresql.primary.service.ports.postgresql The port to expose the PostgreSQL database service on
+  primary:
+    service:
+      ports:
+        postgresql: 5432
+  auth:
+    ## @param postgresql.auth.username The username to use for the PostgreSQL database
+    username: tamuser
+    ## @param postgresql.auth.password The password to use for the PostgreSQL database
+    password: tampassword
+    ## @param postgresql.auth.database The name of the database to use for the PostgreSQL database
+    database: configmanager
