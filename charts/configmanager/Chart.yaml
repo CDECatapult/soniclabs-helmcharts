@@ -1,6 +1,6 @@
 apiVersion: v2
 name: configmanager
-appVersion: 0.1.1
+appVersion: 1.1.0
 description: A generated Helm Chart for Soniclabs T&M configmanager
 version: 1.0.0
 type: application
