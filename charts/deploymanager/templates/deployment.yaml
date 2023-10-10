@@ -56,7 +56,7 @@ spec:
             failureThreshold: 3
           readinessProbe:
             httpGet:
-              path: /api/cma/healthchecks/readiness
+              path: /api/dma/healthchecks/readiness
               port: {{ .Values.config.appPort }}
             timeoutSeconds: 3
             periodSeconds: 10
