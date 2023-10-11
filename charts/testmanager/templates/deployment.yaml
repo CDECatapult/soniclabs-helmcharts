@@ -23,7 +23,7 @@ spec:
       initContainers:
         - name: {{ include "testmanager.fullname" . }}-db-init
           image: {{ template "testmanager.image" .Values.image }}
-          command: ['npm', 'run', 'db:migrate']
+          command: ['npx', 'knex', 'migrate:latest', '--knexfile', 'build/lib/db/knexfile.js']
           env:
             - name: DB_HOST
               value: {{ include "testmanager.postgresql.fullname" . }}
