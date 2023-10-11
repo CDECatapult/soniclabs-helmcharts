@@ -84,10 +84,10 @@ spec:
               value: {{ .Values.config.tma.host | quote }}
             - name: TAM_TEST_MANAGER_PORT
               value: {{ .Values.config.tma.port | quote }}
-            - name: TAM_RESULTS_MANAGER_HOST
-              value: {{ .Values.config.rma.host | quote }}
-            - name: TAM_RESULTS_MANAGER_PORT
-              value: {{ .Values.config.rma.port | quote }}
+            - name: TAM_CONFIG_MANAGER_HOST
+              value: {{ .Values.config.cma.host | quote }}
+            - name: TAM_CONFIG_MANAGER_PORT
+              value: {{ .Values.config.cma.port | quote }}
             - name: TAM_DEPLOY_MANAGER_HOST
               value: {{ .Values.config.dma.host | quote }}
             - name: TAM_DEPLOY_MANAGER_PORT

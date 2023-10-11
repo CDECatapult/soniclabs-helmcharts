@@ -4,27 +4,27 @@
 
 ### ResultsManager Parameters
 
-| Name                       | Description                                                             | Value            |
-| -------------------------- | ----------------------------------------------------------------------- | ---------------- |
-| `config.replicaCount`      | The amount of containers to run                                         | `1`              |
-| `config.type`              | The type of service to create                                           | `LoadBalancer`   |
-| `config.appPort`           | The port to expose the service and application on                       | `8000`           |
-| `config.nodePort`          | The nodePort to use if the the service type is LoadBalancer or NodePort | `30342`          |
-| `config.commonAnnotations` | The annotations to set on the Results Manager application               | `{}`             |
-| `config.debug`             | Whether or not to enable debug mode for the application                 | `False`          |
-| `config.logLevel`          | The log level to use for the application                                | `DEBUG`          |
-| `config.gui.host`          | The hostname of the GUI service                                         | `portal`         |
-| `config.gui.port`          | The port of the GUI service                                             | `8000`           |
-| `config.sma.host`          | The hostname of the Suite Manager service                               | `suitemanager`   |
-| `config.sma.port`          | The port of the Suite Manager service                                   | `8000`           |
-| `config.tma.host`          | The hostname of the Test Manager service                                | `testmanager`    |
-| `config.tma.port`          | The port of the Test Manager service                                    | `8000`           |
-| `config.rma.host`          | The hostname of the Results Manager service                             | `resultsmanager` |
-| `config.rma.port`          | The port of the Results Manager service                                 | `8000`           |
-| `config.apg.host`          | The hostname of the API Gateway service                                 | `apigateway`     |
-| `config.apg.port`          | The port of the API Gateway service                                     | `8000`           |
-| `config.dma.host`          | The hostname of the Deploy Manager service                              | `deploymanager`  |
-| `config.dma.port`          | The port of the Deploy Manager service                                  | `8000`           |
+| Name                       | Description                                                             | Value           |
+| -------------------------- | ----------------------------------------------------------------------- | --------------- |
+| `config.replicaCount`      | The amount of containers to run                                         | `1`             |
+| `config.type`              | The type of service to create                                           | `LoadBalancer`  |
+| `config.appPort`           | The port to expose the service and application on                       | `8000`          |
+| `config.nodePort`          | The nodePort to use if the the service type is LoadBalancer or NodePort | `30342`         |
+| `config.commonAnnotations` | The annotations to set on the Results Manager application               | `{}`            |
+| `config.debug`             | Whether or not to enable debug mode for the application                 | `False`         |
+| `config.logLevel`          | The log level to use for the application                                | `DEBUG`         |
+| `config.gui.host`          | The hostname of the GUI service                                         | `portal`        |
+| `config.gui.port`          | The port of the GUI service                                             | `8000`          |
+| `config.sma.host`          | The hostname of the Suite Manager service                               | `suitemanager`  |
+| `config.sma.port`          | The port of the Suite Manager service                                   | `8000`          |
+| `config.tma.host`          | The hostname of the Test Manager service                                | `testmanager`   |
+| `config.tma.port`          | The port of the Test Manager service                                    | `8000`          |
+| `config.cma.host`          | The hostname of the Config Manager service                              | `configmanager` |
+| `config.cma.port`          | The port of the Config Manager service                                  | `8000`          |
+| `config.apg.host`          | The hostname of the API Gateway service                                 | `apigateway`    |
+| `config.apg.port`          | The port of the API Gateway service                                     | `8000`          |
+| `config.dma.host`          | The hostname of the Deploy Manager service                              | `deploymanager` |
+| `config.dma.port`          | The port of the Deploy Manager service                                  | `8000`          |
 
 ### ResultsManager Image Parameters
 

@@ -30,10 +30,10 @@ config:
     host: testmanager
     ## @param config.tma.port The port of the Test Manager service
     port: 8000
-  rma:
-    ## @param config.rma.host The hostname of the Results Manager service
-    host: resultsmanager
-    ## @param config.rma.port The port of the Results Manager service
+  cma:
+    ## @param config.cma.host The hostname of the Config Manager service
+    host: configmanager
+    ## @param config.cma.port The port of the Config Manager service
     port: 8000
   apg:
     ## @param config.apg.host The hostname of the API Gateway service
