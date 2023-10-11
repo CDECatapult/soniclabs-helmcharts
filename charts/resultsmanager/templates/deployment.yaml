@@ -12,16 +12,35 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
         checksum/secret: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
+      {{- if .Values.config.commonAnnotations }}
+      {{- toYaml .Values.config.commonAnnotations | nindent 6 }}
+      {{- end }}
       labels:
         {{- include "resultsmanager.labels" . | nindent 8 }}
     spec:
       {{- include "resultsmanager.imagePullSecrets" . | indent 6 }}
       initContainers:
-        - name: {{ include "resultsmanager.fullname" . }}-init
+        - name: {{ include "resultsmanager.fullname" . }}-db-init
           image: {{ template "resultsmanager.image" .Values.image }}
-          command: ['sleep', '60']
+          command: ['alembic', 'upgrade', 'head']
+          env:
+            - name: POSTGRES_HOST
+              value: {{ include "resultsmanager.postgresql.fullname" . }}
+            - name: POSTGRES_PORT
+              value: {{ .Values.postgresql.primary.service.ports.postgresql | quote }}
+            - name: POSTGRES_DB
+              value: {{ .Values.postgresql.auth.database | quote }}
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "resultsmanager.fullname" . }}-secret
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "resultsmanager.fullname" . }}-secret
+                  key: POSTGRES_PASSWORD
       containers:
         - name: {{ include "resultsmanager.fullname" . }}-app
           image: {{ template "resultsmanager.image" .Values.image }}
@@ -32,20 +51,54 @@ spec:
             httpGet:
               path: /api/rma/healthchecks/readiness
               port: {{ .Values.config.appPort }}
-            initialDelaySeconds: 15
-            timeoutSeconds: 15
-            periodSeconds: 15
-          envFrom:
-          - configMapRef:
-              name: {{ include "resultsmanager.fullname" . }}-config
-          - secretRef:
-              name: {{ include "resultsmanager.fullname" . }}-secret
+            timeoutSeconds: 3
+            periodSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /api/rma/healthchecks/readiness
+              port: {{ .Values.config.appPort }}
+            timeoutSeconds: 3
+            periodSeconds: 10
+            failureThreshold: 3
           env:
-            - name: HOST_IP
+            - name: APP_DEBUG
+              value: {{ .Values.config.debug | quote }}
+            - name: APP_LOG_LEVEL
+              value: {{ .Values.config.logLevel | quote }}
+            - name: POSTGRES_HOST
+              value: {{ include "resultsmanager.postgresql.fullname" . }}
+            - name: POSTGRES_PORT
+              value: {{ .Values.postgresql.primary.service.ports.postgresql | quote }}
+            - name: POSTGRES_DB
+              value: {{ .Values.postgresql.auth.database | quote }}
+            - name: TAM_GUI_HOST
+              value: {{ .Values.config.gui.host | quote }}
+            - name: TAM_GUI_PORT
+              value: {{ .Values.config.gui.port | quote }}
+            - name: TAM_SUITE_MANAGER_HOST
+              value: {{ .Values.config.sma.host | quote }}
+            - name: TAM_SUITE_MANAGER_PORT
+              value: {{ .Values.config.sma.port | quote }}
+            - name: TAM_TEST_MANAGER_HOST
+              value: {{ .Values.config.tma.host | quote }}
+            - name: TAM_TEST_MANAGER_PORT
+              value: {{ .Values.config.tma.port | quote }}
+            - name: TAM_CONFIG_MANAGER_HOST
+              value: {{ .Values.config.cma.host | quote }}
+            - name: TAM_CONFIG_MANAGER_PORT
+              value: {{ .Values.config.cma.port | quote }}
+            - name: TAM_DEPLOY_MANAGER_HOST
+              value: {{ .Values.config.dma.host | quote }}
+            - name: TAM_DEPLOY_MANAGER_PORT
+              value: {{ .Values.config.dma.port | quote }}
+            - name: POSTGRES_USER
               valueFrom:
-                fieldRef:
-                  fieldPath: status.hostIP
-            - name: POD_IP
+                secretKeyRef:
+                  name: {{ include "resultsmanager.fullname" . }}-secret
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
               valueFrom:
-                fieldRef:
-                  fieldPath: status.podIP
+                secretKeyRef:
+                  name: {{ include "resultsmanager.fullname" . }}-secret
+                  key: POSTGRES_PASSWORD
