@@ -44,7 +44,7 @@
 | `ingress.ingressClassName`  | The ingress class to use for the Suite Manager application              | `""`                 |
 | `ingress.hostname`          | The hostname to use for the Suite Manager application                   | `suitemanager.local` |
 | `ingress.paths`             | The paths to use for the Suite Manager application                      |                      |
-| `ingress.paths[0].path`     | The path to use for the Suite Manager application                       | `/api/cma`           |
+| `ingress.paths[0].path`     | The path to use for the Suite Manager application                       | `/api/sma`           |
 | `ingress.paths[0].pathType` | The path type to use for the Suite Manager application                  | `Prefix`             |
 
 ### SuiteManager ServiceAccount parameters
