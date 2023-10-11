@@ -44,7 +44,7 @@
 | `ingress.ingressClassName`  | The ingress class to use for the Deploy Manager application              | `""`                  |
 | `ingress.hostname`          | The hostname to use for the Deploy Manager application                   | `deploymanager.local` |
 | `ingress.paths`             | The paths to use for the Deploy Manager application                      |                       |
-| `ingress.paths[0].path`     | The path to use for the Deploy Manager application                       | `/api/cma`            |
+| `ingress.paths[0].path`     | The path to use for the Deploy Manager application                       | `/api/dma`            |
 | `ingress.paths[0].pathType` | The path type to use for the Deploy Manager application                  | `Prefix`              |
 
 ### DeployManager ServiceAccount parameters
