@@ -14,7 +14,7 @@ config:
   ## @param config.debug Whether or not to enable debug mode for the application
   debug: "False"
   ## @param config.logLevel The log level to use for the application
-  logLevel: DEBUG
+  logLevel: debug
   gui:
     ## @param config.gui.host The hostname of the GUI service
     host: portal
