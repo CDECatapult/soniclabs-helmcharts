@@ -9,6 +9,6 @@ maintainers:
     url: cdecatapult.github.io/soniclabs-helmcharts
 dependencies:
   - name: postgresql
-    version: '^12.1.14'
+    version: '^12.x.x'
     repository: https://charts.bitnami.com/bitnami
     condition: postgresql.enabled
