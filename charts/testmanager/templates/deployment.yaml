@@ -12,16 +12,35 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
         checksum/secret: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
+      {{- if .Values.config.commonAnnotations }}
+      {{- toYaml .Values.config.commonAnnotations | nindent 6 }}
+      {{- end }}
       labels:
         {{- include "testmanager.labels" . | nindent 8 }}
     spec:
       {{- include "testmanager.imagePullSecrets" . | indent 6 }}
       initContainers:
-        - name: {{ include "testmanager.fullname" . }}-init
+        - name: {{ include "testmanager.fullname" . }}-db-init
           image: {{ template "testmanager.image" .Values.image }}
-          command: ['sleep', '60']
+          command: ['npx', 'knex', 'migrate:latest', '--knexfile', 'build/lib/db/knexfile.js']
+          env:
+            - name: DB_HOST
+              value: {{ include "testmanager.postgresql.fullname" . }}
+            - name: DB_PORT
+              value: {{ .Values.postgresql.primary.service.ports.postgresql | quote }}
+            - name: DB_NAME
+              value: {{ .Values.postgresql.auth.database | quote }}
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "testmanager.fullname" . }}-secret
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "testmanager.fullname" . }}-secret
+                  key: DB_PASSWORD
       containers:
         - name: {{ include "testmanager.fullname" . }}-app
           image: {{ template "testmanager.image" .Values.image }}
@@ -30,22 +49,68 @@ spec:
             - containerPort: {{ .Values.config.appPort }}
           livenessProbe:
             httpGet:
-              path: /api/tma/healthchecks/readiness
+              path: /health
               port: {{ .Values.config.appPort }}
-            initialDelaySeconds: 15
-            timeoutSeconds: 15
-            periodSeconds: 15
-          envFrom:
-          - configMapRef:
-              name: {{ include "testmanager.fullname" . }}-config
-          - secretRef:
-              name: {{ include "testmanager.fullname" . }}-secret
+            timeoutSeconds: 3
+            periodSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.config.appPort }}
+            timeoutSeconds: 3
+            periodSeconds: 10
+            failureThreshold: 3
           env:
-            - name: HOST_IP
+            - name: APP_DEBUG
+              value: {{ .Values.config.debug | quote }}
+            - name: LOG_LEVEL
+              value: {{ .Values.config.logLevel | quote }}
+            - name: PORT
+              value: {{ .Values.config.appPort | quote }}
+            - name: DB_HOST
+              value: {{ include "testmanager.postgresql.fullname" . }}
+            - name: DB_PORT
+              value: {{ .Values.postgresql.primary.service.ports.postgresql | quote }}
+            - name: DB_NAME
+              value: {{ .Values.postgresql.auth.database | quote }}
+            - name: SUITE_HOST
+              value: {{ .Values.config.sma.host | quote }}
+            - name: SUITE_PORT
+              value: {{ .Values.config.sma.port | quote }}
+            - name: CONFIG_HOST
+              value: {{ .Values.config.cma.host | quote }}
+            - name: CONFIG_PORT
+              value: {{ .Values.config.cma.port | quote }}
+            - name: RESULTS_HOST
+              value: {{ .Values.config.rma.host | quote }}
+            - name: RESULTS_PORT
+              value: {{ .Values.config.rma.port | quote }}
+            - name: DEPLOY_HOST
+              value: {{ .Values.config.dma.host | quote }}
+            - name: DEPLOY_PORT
+              value: {{ .Values.config.dma.port | quote }}
+            - name: CONTROL_HOST
+              value: {{ .Values.config.controlHost | quote }}
+            - name: CONTROL_SHARENAME
+              value: {{ .Values.config.controlShare | quote }}
+            - name: DB_USERNAME
               valueFrom:
-                fieldRef:
-                  fieldPath: status.hostIP
-            - name: POD_IP
+                secretKeyRef:
+                  name: {{ include "testmanager.fullname" . }}-secret
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
               valueFrom:
-                fieldRef:
-                  fieldPath: status.podIP
+                secretKeyRef:
+                  name: {{ include "testmanager.fullname" . }}-secret
+                  key: DB_PASSWORD
+            - name: CONTROL_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "testmanager.fullname" . }}-secret
+                  key: CONTROL_USERNAME
+            - name: CONTROL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "testmanager.fullname" . }}-secret
+                  key: CONTROL_PASSWORD
