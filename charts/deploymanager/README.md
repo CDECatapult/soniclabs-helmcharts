@@ -23,8 +23,8 @@
 | `config.rma.port`          | The port of the Results Manager service                                 | `8000`           |
 | `config.apg.host`          | The hostname of the API Gateway service                                 | `apigateway`     |
 | `config.apg.port`          | The port of the API Gateway service                                     | `8000`           |
-| `config.dma.host`          | The hostname of the Deploy Manager service                              | `deploymanager`  |
-| `config.dma.port`          | The port of the Deploy Manager service                                  | `8000`           |
+| `config.cma.host`          | The hostname of the Config Manager service                              | `configmanager`  |
+| `config.cma.port`          | The port of the Config Manager service                                  | `8000`           |
 
 ### DeployManager Image Parameters
 

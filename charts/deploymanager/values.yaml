@@ -40,10 +40,10 @@ config:
     host: apigateway
     ## @param config.apg.port The port of the API Gateway service
     port: 8000
-  dma:
-    ## @param config.dma.host The hostname of the Deploy Manager service
-    host: deploymanager
-    ## @param config.dma.port The port of the Deploy Manager service
+  cma:
+    ## @param config.cma.host The hostname of the Config Manager service
+    host: configmanager
+    ## @param config.cma.port The port of the Config Manager service
     port: 8000
 
 ## @section DeployManager Image Parameters

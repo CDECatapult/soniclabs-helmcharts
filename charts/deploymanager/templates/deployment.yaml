@@ -88,10 +88,10 @@ spec:
               value: {{ .Values.config.rma.host | quote }}
             - name: TAM_RESULTS_MANAGER_PORT
               value: {{ .Values.config.rma.port | quote }}
-            - name: TAM_DEPLOY_MANAGER_HOST
-              value: {{ .Values.config.dma.host | quote }}
-            - name: TAM_DEPLOY_MANAGER_PORT
-              value: {{ .Values.config.dma.port | quote }}
+            - name: TAM_CONFIG_MANAGER_HOST
+              value: {{ .Values.config.cma.host | quote }}
+            - name: TAM_CONFIG_MANAGER_PORT
+              value: {{ .Values.config.cma.port | quote }}
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
