@@ -72,7 +72,7 @@ ingress:
   paths:
   ## @param ingress.paths[0].path The path to use for the Suite Manager application
   ## @param ingress.paths[0].pathType The path type to use for the Suite Manager application
-    - path: /api/cma
+    - path: /api/sma
       pathType: Prefix
 
 ## @section SuiteManager ServiceAccount parameters
