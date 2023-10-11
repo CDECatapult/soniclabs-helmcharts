@@ -76,10 +76,10 @@ spec:
               value: {{ .Values.config.gui.host | quote }}
             - name: TAM_GUI_PORT
               value: {{ .Values.config.gui.port | quote }}
-            - name: TAM_SUITE_MANAGER_HOST
-              value: {{ .Values.config.sma.host | quote }}
-            - name: TAM_SUITE_MANAGER_PORT
-              value: {{ .Values.config.sma.port | quote }}
+            - name: TAM_CONFIG_MANAGER_HOST
+              value: {{ .Values.config.cma.host | quote }}
+            - name: TAM_CONFIG_MANAGER_PORT
+              value: {{ .Values.config.cma.port | quote }}
             - name: TAM_TEST_MANAGER_HOST
               value: {{ .Values.config.tma.host | quote }}
             - name: TAM_TEST_MANAGER_PORT

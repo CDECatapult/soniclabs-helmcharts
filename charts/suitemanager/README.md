@@ -15,8 +15,8 @@
 | `config.logLevel`          | The log level to use for the application                                | `DEBUG`          |
 | `config.gui.host`          | The hostname of the GUI service                                         | `portal`         |
 | `config.gui.port`          | The port of the GUI service                                             | `8000`           |
-| `config.sma.host`          | The hostname of the Suite Manager service                               | `suitemanager`   |
-| `config.sma.port`          | The port of the Suite Manager service                                   | `8000`           |
+| `config.cma.host`          | The hostname of the Config Manager service                              | `configmanager`  |
+| `config.cma.port`          | The port of the Config Manager service                                  | `8000`           |
 | `config.tma.host`          | The hostname of the Test Manager service                                | `testmanager`    |
 | `config.tma.port`          | The port of the Test Manager service                                    | `8000`           |
 | `config.rma.host`          | The hostname of the Results Manager service                             | `resultsmanager` |

@@ -20,10 +20,10 @@ config:
     host: portal
     ## @param config.gui.port The port of the GUI service
     port: 8000
-  sma:
-    ## @param config.sma.host The hostname of the Suite Manager service
-    host: suitemanager
-    ## @param config.sma.port The port of the Suite Manager service
+  cma:
+    ## @param config.cma.host The hostname of the Config Manager service
+    host: configmanager
+    ## @param config.cma.port The port of the Config Manager service
     port: 8000
   tma:
     ## @param config.tma.host The hostname of the Test Manager service
