@@ -78,7 +78,7 @@ spec:
               value: {{ .Values.config.sma.host | quote }}
             - name: SUITE_PORT
               value: {{ .Values.config.sma.port | quote }}
-            - name: CONFIG_PORT
+            - name: CONFIG_HOST
               value: {{ .Values.config.cma.host | quote }}
             - name: CONFIG_PORT
               value: {{ .Values.config.cma.port | quote }}
@@ -92,7 +92,7 @@ spec:
               value: {{ .Values.config.dma.port | quote }}
             - name: CONTROL_HOST
               value: {{ .Values.config.controlHost | quote }}
-            - name: CONTROL_SHARE
+            - name: CONTROL_SHARENAME
               value: {{ .Values.config.controlShare | quote }}
             - name: DB_USERNAME
               valueFrom:
