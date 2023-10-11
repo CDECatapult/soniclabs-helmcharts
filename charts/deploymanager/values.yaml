@@ -72,7 +72,7 @@ ingress:
   paths:
   ## @param ingress.paths[0].path The path to use for the Deploy Manager application
   ## @param ingress.paths[0].pathType The path type to use for the Deploy Manager application
-    - path: /api/rma
+    - path: /api/dma
       pathType: Prefix
 
 ## @section DeployManager ServiceAccount parameters
