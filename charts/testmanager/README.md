@@ -12,7 +12,7 @@
 | `config.nodePort`          | The nodePort to use if the the service type is LoadBalancer or NodePort | `30342`          |
 | `config.commonAnnotations` | The annotations to set on the Test Manager application                  | `{}`             |
 | `config.debug`             | Whether or not to enable debug mode for the application                 | `False`          |
-| `config.logLevel`          | The log level to use for the application                                | `DEBUG`          |
+| `config.logLevel`          | The log level to use for the application                                | `debug`          |
 | `config.gui.host`          | The hostname of the GUI service                                         | `portal`         |
 | `config.gui.port`          | The port of the GUI service                                             | `8000`           |
 | `config.sma.host`          | The hostname of the Suite Manager service                               | `suitemanager`   |
@@ -36,7 +36,7 @@
 | ------------------- | -------------------------------------------------- | ---------------------------------------------- |
 | `image.repository`  | The repository to use for the Test Manager image   | `ghcr.io/cdecatapult/soniclabs-testmanager-ts` |
 | `image.pullPolicy`  | The pull policy to use for the Test Manager image  | `Always`                                       |
-| `image.tag`         | The tag to use for the Test Manager image          | `v0.0.11`                                      |
+| `image.tag`         | The tag to use for the Test Manager image          | `v0.0.12`                                      |
 | `image.pullSecrets` | The pull secrets to use for the Test Manager image | `["soniclabs"]`                                |
 
 ### TestManager Ingress parameters
