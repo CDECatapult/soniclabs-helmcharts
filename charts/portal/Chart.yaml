@@ -1,0 +1,9 @@
+apiVersion: v2
+name: portal
+appVersion: 0.0.1
+description: A generated Helm Chart for Soniclabs T&M Portal
+version: 0.0.1
+type: application
+maintainers:
+  - name: cdecatapult
+    url: cdecatapult.github.io/soniclabs-helmcharts

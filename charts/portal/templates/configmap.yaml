@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ConfigMap
+metadata:
+  name: {{ include "portal.fullname" . }}-configmap
+  labels:
+    {{- include "portal.labels" . | nindent 4 }}
+data:
+  config.js: |
+    const config = {
+      {{- with (index .Values.ingress.paths 0) }}
+      REACT_APP_PUBLIC_BASE_PATH: '{{ .path }}',
+      {{- end }}
+      REACT_APP_TESTMANAGER_HOST: '{{ .Values.config.tma.host }}',
+      REACT_APP_TESTMANAGER_PORT: '{{ .Values.config.tma.port }}'
+    }
+
+    if (!Window.config) {
+      Window.config = {}
+    }
+
+    Window.config = Object.keys(config).reduce((out, next) => {
+      if (!out.hasOwnProperty(next)) out[next] = config[next]
+      return out
+    }, {})
