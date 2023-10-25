@@ -10,8 +10,14 @@ data:
       {{- with (index .Values.ingress.paths 0) }}
       REACT_APP_PUBLIC_BASE_PATH: '{{ .path }}',
       {{- end }}
-      REACT_APP_TESTMANAGER_HOST: '{{ .Values.config.tma.host }}',
-      REACT_APP_TESTMANAGER_PORT: '{{ .Values.config.tma.port }}'
+      TEST_MANAGER_HOST: '{{ .Values.config.tma.host }}',
+      TEST_MANAGER_PORT: '{{ .Values.config.tma.port }}',
+      CONFIG_MANAGER_HOST: '{{ .Values.config.cma.host }}',
+      CONFIG_MANAGER_PORT: '{{ .Values.config.cma.port }}',
+      RESULTS_MANAGER_HOST: '{{ .Values.config.rma.host }}',
+      RESULTS_MANAGER_PORT: '{{ .Values.config.rma.port }}',
+      SUITE_MANAGER_HOST: '{{ .Values.config.sma.host }}',
+      SUITE_MANAGER_PORT: '{{ .Values.config.sma.port }}'
     }
 
     if (!Window.config) {

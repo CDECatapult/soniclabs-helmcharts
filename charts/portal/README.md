@@ -28,7 +28,7 @@
 | ------------------- | -------------------------------------------- | -------------------------------------- |
 | `image.repository`  | The repository to use for the Portal image   | `ghcr.io/cdecatapult/soniclabs-portal` |
 | `image.pullPolicy`  | The pull policy to use for the Portal image  | `Always`                               |
-| `image.tag`         | The tag to use for the Portal image          | `v0.0.1`                               |
+| `image.tag`         | The tag to use for the Portal image          | `v0.0.7`                               |
 | `image.pullSecrets` | The pull secrets to use for the Portal image | `["soniclabs"]`                        |
 
 ### Portal Ingress parameters
