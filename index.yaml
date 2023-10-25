@@ -290,6 +290,20 @@ entries:
     urls:
     - https://github.com/CDECatapult/soniclabs-helmcharts/releases/download/deploymanager-0.0.1/deploymanager-0.0.1.tgz
     version: 0.0.1
+  portal:
+  - apiVersion: v2
+    appVersion: 0.0.7
+    created: "2023-10-25T13:20:39.889288148Z"
+    description: A generated Helm Chart for Soniclabs T&M Portal
+    digest: 1a066b3d5552a1d09397dc4971ddcc08d5815fe2ebb7ac092b966ad068021042
+    maintainers:
+    - name: cdecatapult
+      url: cdecatapult.github.io/soniclabs-helmcharts
+    name: portal
+    type: application
+    urls:
+    - https://github.com/CDECatapult/soniclabs-helmcharts/releases/download/portal-0.0.1/portal-0.0.1.tgz
+    version: 0.0.1
   resultsmanager:
   - apiVersion: v2
     appVersion: 1.1.0
@@ -581,4 +595,4 @@ entries:
     urls:
     - https://github.com/CDECatapult/soniclabs-helmcharts/releases/download/testmanager-0.0.1/testmanager-0.0.1.tgz
     version: 0.0.1
-generated: "2023-10-11T13:23:38.526651498Z"
+generated: "2023-10-25T13:20:39.889354149Z"
