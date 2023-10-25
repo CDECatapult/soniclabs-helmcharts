@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "portal.fullname" . }}-configmap
+  labels:
+    {{- include "portal.labels" . | nindent 4 }}
+data:
+  config.js: |
+    const config = {
+      TEST_MANAGER_HOST: '{{ .Values.config.tma.host }}',
+      TEST_MANAGER_PORT: '{{ .Values.config.tma.port }}',
+      DEPLOY_MANAGER_HOST: '{{ .Values.config.dma.host }}',
+      DEPLOY_MANAGER_PORT: '{{ .Values.config.dma.port }}',
+      CONFIG_MANAGER_HOST: '{{ .Values.config.cma.host }}',
+      CONFIG_MANAGER_PORT: '{{ .Values.config.cma.port }}',
+      RESULTS_MANAGER_HOST: '{{ .Values.config.rma.host }}',
+      RESULTS_MANAGER_PORT: '{{ .Values.config.rma.port }}',
+      SUITE_MANAGER_HOST: '{{ .Values.config.sma.host }}',
+      SUITE_MANAGER_PORT: '{{ .Values.config.sma.port }}'
+    }
+
+    if (!Window.config) {
+      Window.config = {}
+    }
+
+    Window.config = Object.keys(config).reduce((out, next) => {
+      if (!out.hasOwnProperty(next)) out[next] = config[next]
+      return out
+    }, {})

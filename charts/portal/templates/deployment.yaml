@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "portal.fullname" . }}-app
+  labels:
+    {{- include "portal.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.config.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "portal.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        checksum/configmap: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+      {{- if .Values.config.commonAnnotations }}
+      {{- toYaml .Values.config.commonAnnotations | nindent 6 }}
+      {{- end }}
+      labels:
+        {{- include "portal.labels" . | nindent 8 }}
+    spec:
+      {{- include "portal.imagePullSecrets" . | indent 6 }}
+      containers:
+        - name: {{ include "portal.fullname" . }}-app
+          image: {{ template "portal.image" .Values.image }}
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          ports:
+            - containerPort: {{ .Values.config.appPort }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.config.appPort }}
+            timeoutSeconds: 3
+            periodSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.config.appPort }}
+            timeoutSeconds: 3
+            periodSeconds: 10
+            failureThreshold: 3
+          volumeMounts:
+            - name: configmap
+              mountPath: /soniclabs-portal/config.js
+              subPath: config.js
+              readOnly: true
+      volumes:
+        - name: configmap
+          configMap:
+            name: {{ include "portal.fullname" . }}-configmap
+            items:
+              - key: config.js
+                path: config.js
