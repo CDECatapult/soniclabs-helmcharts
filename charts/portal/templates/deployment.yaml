@@ -45,10 +45,10 @@ spec:
               mountPath: /soniclabs-portal/config.js
               subPath: config.js
               readOnly: true
-          volumes:
-            - name: configmap
-              configMap:
-                name: {{ include "portal.fullname" . }}-configmap
-                items:
-                  - key: config.js
-                    path: config.js
+      volumes:
+        - name: configmap
+          configMap:
+            name: {{ include "portal.fullname" . }}-configmap
+            items:
+              - key: config.js
+                path: config.js
