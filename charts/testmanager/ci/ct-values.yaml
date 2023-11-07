@@ -1,2 +1,6 @@
 config:
   type: ClusterIP
+  pcapStorage:
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClassName: default
