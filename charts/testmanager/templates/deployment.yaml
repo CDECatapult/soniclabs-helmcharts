@@ -99,7 +99,7 @@ spec:
             - name: SSH_KEY_PATH
               value: /etc/ssh/oran-component-key/ssh-privatekey
             - name: PCAP_STORAGE_PATH
-              value: {{ .Values.config.pcapStoragePath | quote }}
+              value: {{ .Values.config.pcapStorage.path | quote }}
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
