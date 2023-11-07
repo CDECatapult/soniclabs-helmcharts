@@ -96,7 +96,7 @@ spec:
               value: {{ .Values.config.rtcPort | quote }}
             - name: TMA_PATH
               value: {{ .Values.config.tmaPath | quote }}
-            - name: SSH_KEY_PATH
+            - name: SSH_PRIVATEKEY_PATH
               value: /etc/ssh/oran-component-key/ssh-privatekey
             - name: PCAP_STORAGE_PATH
               value: {{ .Values.config.pcapStorage.path | quote }}
