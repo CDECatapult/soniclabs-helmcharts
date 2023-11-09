@@ -49,21 +49,19 @@ spec:
             - containerPort: {{ .Values.config.appPort }}
           livenessProbe:
             httpGet:
-              path: /health
+              path: /api/tma/health
               port: {{ .Values.config.appPort }}
             timeoutSeconds: 3
             periodSeconds: 10
             failureThreshold: 3
           readinessProbe:
             httpGet:
-              path: /health
+              path: /api/tma/health
               port: {{ .Values.config.appPort }}
             timeoutSeconds: 3
             periodSeconds: 10
             failureThreshold: 3
           env:
-            - name: APP_DEBUG
-              value: {{ .Values.config.debug | quote }}
             - name: LOG_LEVEL
               value: {{ .Values.config.logLevel | quote }}
             - name: PORT
@@ -94,6 +92,14 @@ spec:
               value: {{ .Values.config.controlHost | quote }}
             - name: CONTROL_SHARENAME
               value: {{ .Values.config.controlShare | quote }}
+            - name: RTC_PORT
+              value: {{ .Values.config.rtcPort | quote }}
+            - name: TMA_PATH
+              value: {{ .Values.config.tmaPath | quote }}
+            - name: SSH_PRIVATEKEY_PATH
+              value: /etc/ssh/oran-component-key/ssh-privatekey
+            - name: PCAP_STORAGE_PATH
+              value: {{ .Values.config.pcapStorage.path | quote }}
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
@@ -114,3 +120,16 @@ spec:
                 secretKeyRef:
                   name: {{ include "testmanager.fullname" . }}-secret
                   key: CONTROL_PASSWORD
+          volumeMounts:
+            - name: ssh-key
+              mountPath: /etc/ssh/oran-component-key
+              readOnly: true
+            - name: pcap-storage
+              mountPath: {{ .Values.config.pcapStorage.path }}
+      volumes:
+        - name: ssh-key
+          secret:
+            secretName: {{ include "testmanager.fullname" . }}-ssh-key
+        - name: pcap-storage
+          persistentVolumeClaim:
+            claimName: {{ include "testmanager.fullname" . }}-pcap-storage
