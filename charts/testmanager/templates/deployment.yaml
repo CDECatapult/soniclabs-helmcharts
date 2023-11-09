@@ -49,14 +49,14 @@ spec:
             - containerPort: {{ .Values.config.appPort }}
           livenessProbe:
             httpGet:
-              path: /health
+              path: /api/tma/health
               port: {{ .Values.config.appPort }}
             timeoutSeconds: 3
             periodSeconds: 10
             failureThreshold: 3
           readinessProbe:
             httpGet:
-              path: /health
+              path: /api/tma/health
               port: {{ .Values.config.appPort }}
             timeoutSeconds: 3
             periodSeconds: 10
