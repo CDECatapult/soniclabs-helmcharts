@@ -37,15 +37,15 @@
 
 ### DeployManager Ingress parameters
 
-| Name                        | Description                                                              | Value                 |
-| --------------------------- | ------------------------------------------------------------------------ | --------------------- |
-| `ingress.enabled`           | Whether or not to enable the ingress for the Deploy Manager application  | `true`                |
-| `ingress.annotations`       | The annotations to set on the ingress for the Deploy Manager application | `{}`                  |
-| `ingress.ingressClassName`  | The ingress class to use for the Deploy Manager application              | `""`                  |
-| `ingress.hostname`          | The hostname to use for the Deploy Manager application                   | `deploymanager.local` |
-| `ingress.paths`             | The paths to use for the Deploy Manager application                      |                       |
-| `ingress.paths[0].path`     | The path to use for the Deploy Manager application                       | `/api/dma`            |
-| `ingress.paths[0].pathType` | The path type to use for the Deploy Manager application                  | `Prefix`              |
+| Name                        | Description                                                              | Value      |
+| --------------------------- | ------------------------------------------------------------------------ | ---------- |
+| `ingress.enabled`           | Whether or not to enable the ingress for the Deploy Manager application  | `true`     |
+| `ingress.annotations`       | The annotations to set on the ingress for the Deploy Manager application | `{}`       |
+| `ingress.ingressClassName`  | The ingress class to use for the Deploy Manager application              | `""`       |
+| `ingress.hostname`          | The hostname to use for the Deploy Manager application                   | `""`       |
+| `ingress.paths`             | The paths to use for the Deploy Manager application                      |            |
+| `ingress.paths[0].path`     | The path to use for the Deploy Manager application                       | `/api/dma` |
+| `ingress.paths[0].pathType` | The path type to use for the Deploy Manager application                  | `Prefix`   |
 
 ### DeployManager ServiceAccount parameters
 

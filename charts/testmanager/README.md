@@ -51,15 +51,15 @@ blahblahblahblah
 
 ### TestManager Ingress parameters
 
-| Name                        | Description                                                            | Value               |
-| --------------------------- | ---------------------------------------------------------------------- | ------------------- |
-| `ingress.enabled`           | Whether or not to enable the ingress for the Test Manager application  | `true`              |
-| `ingress.annotations`       | The annotations to set on the ingress for the Test Manager application | `{}`                |
-| `ingress.ingressClassName`  | The ingress class to use for the Test Manager application              | `""`                |
-| `ingress.hostname`          | The hostname to use for the Test Manager application                   | `testmanager.local` |
-| `ingress.paths`             | The paths to use for the Test Manager application                      |                     |
-| `ingress.paths[0].path`     | The path to use for IoT tests in the Test Manager application          | `/api/tma`          |
-| `ingress.paths[0].pathType` | The path type to use for Iot tests in the Test Manager application     | `Prefix`            |
+| Name                        | Description                                                            | Value      |
+| --------------------------- | ---------------------------------------------------------------------- | ---------- |
+| `ingress.enabled`           | Whether or not to enable the ingress for the Test Manager application  | `true`     |
+| `ingress.annotations`       | The annotations to set on the ingress for the Test Manager application | `{}`       |
+| `ingress.ingressClassName`  | The ingress class to use for the Test Manager application              | `""`       |
+| `ingress.hostname`          | The hostname to use for the Test Manager application                   | `""`       |
+| `ingress.paths`             | The paths to use for the Test Manager application                      |            |
+| `ingress.paths[0].path`     | The path to use for IoT tests in the Test Manager application          | `/api/tma` |
+| `ingress.paths[0].pathType` | The path type to use for Iot tests in the Test Manager application     | `Prefix`   |
 
 ### TestManager ServiceAccount parameters
 
