@@ -37,15 +37,15 @@
 
 ### ConfigManager Ingress parameters
 
-| Name                        | Description                                                              | Value                 |
-| --------------------------- | ------------------------------------------------------------------------ | --------------------- |
-| `ingress.enabled`           | Whether or not to enable the ingress for the Config Manager application  | `true`                |
-| `ingress.annotations`       | The annotations to set on the ingress for the Config Manager application | `{}`                  |
-| `ingress.ingressClassName`  | The ingress class to use for the Config Manager application              | `""`                  |
-| `ingress.hostname`          | The hostname to use for the Config Manager application                   | `configmanager.local` |
-| `ingress.paths`             | The paths to use for the Config Manager application                      |                       |
-| `ingress.paths[0].path`     | The path to use for the Config Manager application                       | `/api/cma`            |
-| `ingress.paths[0].pathType` | The path type to use for the Config Manager application                  | `Prefix`              |
+| Name                        | Description                                                              | Value      |
+| --------------------------- | ------------------------------------------------------------------------ | ---------- |
+| `ingress.enabled`           | Whether or not to enable the ingress for the Config Manager application  | `true`     |
+| `ingress.annotations`       | The annotations to set on the ingress for the Config Manager application | `{}`       |
+| `ingress.ingressClassName`  | The ingress class to use for the Config Manager application              | `""`       |
+| `ingress.hostname`          | The hostname to use for the Config Manager application                   | `""`       |
+| `ingress.paths`             | The paths to use for the Config Manager application                      |            |
+| `ingress.paths[0].path`     | The path to use for the Config Manager application                       | `/api/cma` |
+| `ingress.paths[0].pathType` | The path type to use for the Config Manager application                  | `Prefix`   |
 
 ### ConfigManager ServiceAccount parameters
 

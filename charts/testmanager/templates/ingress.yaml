@@ -16,12 +16,16 @@ metadata:
     {{- end }}
   {{- end }}
 spec:
-  {{ if .Values.ingress.ingressClassName }}
+   {{- if .Values.ingress.ingressClassName }}
   ingressClassName: {{ .Values.ingress.ingressClassName | quote }}
-  {{ end }}
+  {{- end }}
   rules:
+    {{- if .Values.ingress.hostname }}
     - host: {{ .Values.ingress.hostname }}
       http:
+    {{- else }}
+    - http:
+    {{- end }}
         paths:
         {{- range .Values.ingress.paths }}
           - path: {{ .path }}

@@ -67,7 +67,7 @@ ingress:
   ## @param ingress.ingressClassName The ingress class to use for the Config Manager application
   ingressClassName: ""
   ## @param ingress.hostname The hostname to use for the Config Manager application
-  hostname: configmanager.local
+  hostname: ""
   ## @extra ingress.paths The paths to use for the Config Manager application
   paths:
   ## @param ingress.paths[0].path The path to use for the Config Manager application

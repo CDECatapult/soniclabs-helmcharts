@@ -93,7 +93,7 @@ ingress:
   ## @param ingress.ingressClassName The ingress class to use for the Test Manager application
   ingressClassName: ""
   ## @param ingress.hostname The hostname to use for the Test Manager application
-  hostname: testmanager.local
+  hostname: ""
   ## @extra ingress.paths The paths to use for the Test Manager application
   paths:
   ## @param ingress.paths[0].path The path to use for IoT tests in the Test Manager application
