@@ -66,6 +66,8 @@ spec:
               value: {{ .Values.config.debug | quote }}
             - name: APP_LOG_LEVEL
               value: {{ .Values.config.logLevel | quote }}
+            - name: DATASTORE
+              value: {{ .Values.config.pcapStorage.path | quote }}
             - name: POSTGRES_HOST
               value: {{ include "resultsmanager.postgresql.fullname" . }}
             - name: POSTGRES_PORT
@@ -102,3 +104,10 @@ spec:
                 secretKeyRef:
                   name: {{ include "resultsmanager.fullname" . }}-secret
                   key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: pcap-storage
+              mountPath: {{ .Values.config.pcapStorage.path }}
+      volumes:
+        - name: pcap-storage
+          persistentVolumeClaim:
+            claimName: {{ include "resultsmanager.fullname" . }}-pcap-storage
