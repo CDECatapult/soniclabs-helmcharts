@@ -32,7 +32,7 @@ config:
     accessMode: ReadWriteMany
     path: /mnt/pcaps
     size: 10Gi
-    storageClassName: azureFile
+    storageClassName: azurefile
   gui:
     ## @param config.gui.host The hostname of the GUI service
     host: portal

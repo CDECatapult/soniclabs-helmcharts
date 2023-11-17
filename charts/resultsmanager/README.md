@@ -15,7 +15,7 @@
 | `config.pcapStorage.path`             | The Location to store pcaps in and mount the PVC to                     | `/mnt/pcaps`    |
 | `config.pcapStorage.accessMode`       | The access mode to use for the PCAP storage PVC                         | `ReadWriteMany` |
 | `config.pcapStorage.size`             | The path to use for the PCAP storage PVC                                | `100Gi`         |
-| `config.pcapStorage.storageClassName` | The storage class to use for the PCAP storage PVC                       | `azureFile`     |
+| `config.pcapStorage.storageClassName` | The storage class to use for the PCAP storage PVC                       | `azurefile`     |
 | `config.logLevel`                     | The log level to use for the application                                | `DEBUG`         |
 | `config.gui.host`                     | The hostname of the GUI service                                         | `portal`        |
 | `config.gui.port`                     | The port of the GUI service                                             | `8000`          |
