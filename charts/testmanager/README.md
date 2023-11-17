@@ -22,7 +22,7 @@ blahblahblahblah
 | `config.pcapStorage.accessMode`       | The access mode to use for the PCAP storage PVC                         | `ReadWriteMany`                                                                  |
 | `config.pcapStorage.path`             | The path to use for the PCAP storage PVC                                | `/mnt/pcaps`                                                                     |
 | `config.pcapStorage.size`             | The size to use for the PCAP storage PVC                                | `10Gi`                                                                           |
-| `config.pcapStorage.storageClassName` | The storage class to use for the PCAP storage PVC                       | `azureFile`                                                                      |
+| `config.pcapStorage.storageClassName` | The storage class to use for the PCAP storage PVC                       | `azurefile`                                                                      |
 | `config.gui.host`                     | The hostname of the GUI service                                         | `portal`                                                                         |
 | `config.gui.port`                     | The port of the GUI service                                             | `8000`                                                                           |
 | `config.sma.host`                     | The hostname of the Suite Manager service                               | `suitemanager`                                                                   |

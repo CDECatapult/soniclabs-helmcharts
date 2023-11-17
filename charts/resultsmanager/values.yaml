@@ -21,7 +21,7 @@ config:
     ## @param config.pcapStorage.size The path to use for the PCAP storage PVC
     size: 100Gi
     ## @param config.pcapStorage.storageClassName The storage class to use for the PCAP storage PVC
-    storageClassName: azureFile
+    storageClassName: azurefile
   ## @param config.logLevel The log level to use for the application
   logLevel: DEBUG
   gui:
