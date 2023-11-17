@@ -12,7 +12,7 @@
 | `config.nodePort`                     | The nodePort to use if the the service type is LoadBalancer or NodePort | `30342`         |
 | `config.commonAnnotations`            | The annotations to set on the Results Manager application               | `{}`            |
 | `config.debug`                        | Whether or not to enable debug mode for the application                 | `False`         |
-| `config.pcapStorage.path`             | The Location to store pcaps in                                          | `/mnt/pcaps`    |
+| `config.pcapStorage.path`             | The Location to store pcaps in and mount the PVC to                     | `/mnt/pcaps`    |
 | `config.pcapStorage.accessMode`       | The access mode to use for the PCAP storage PVC                         | `ReadWriteMany` |
 | `config.pcapStorage.size`             | The path to use for the PCAP storage PVC                                | `100Gi`         |
 | `config.pcapStorage.storageClassName` | The storage class to use for the PCAP storage PVC                       | `azureFile`     |

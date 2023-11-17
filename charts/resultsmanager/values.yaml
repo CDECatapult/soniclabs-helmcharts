@@ -13,12 +13,12 @@ config:
   commonAnnotations: {}
   ## @param config.debug Whether or not to enable debug mode for the application
   debug: "False"
-  pcapStorage: 
-    ## @param config.pcapStorage.path The Location to store pcaps in
+  pcapStorage:
+    ## @param config.pcapStorage.path The Location to store pcaps in and mount the PVC to
     path: /mnt/pcaps
     ## @param config.pcapStorage.accessMode The access mode to use for the PCAP storage PVC
     accessMode: ReadWriteMany
-    ## @param config.pcapStorage.size The path to use for the PCAP storage PVC  
+    ## @param config.pcapStorage.size The path to use for the PCAP storage PVC
     size: 100Gi
     ## @param config.pcapStorage.storageClassName The storage class to use for the PCAP storage PVC
     storageClassName: azureFile
