@@ -32,7 +32,7 @@
 | ------------------- | ---------------------------------------------------- | --------------------------------------------- |
 | `image.repository`  | The repository to use for the Deploy Manager image   | `ghcr.io/cdecatapult/soniclabs-deploymanager` |
 | `image.pullPolicy`  | The pull policy to use for the Deploy Manager image  | `Always`                                      |
-| `image.tag`         | The tag to use for the Deploy Manager image          | `v1.1.2`                                      |
+| `image.tag`         | The tag to use for the Deploy Manager image          | `v1.1.3`                                      |
 | `image.pullSecrets` | The pull secrets to use for the Deploy Manager image | `["soniclabs"]`                               |
 
 ### DeployManager Ingress parameters
