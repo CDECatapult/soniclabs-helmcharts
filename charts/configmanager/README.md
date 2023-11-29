@@ -32,7 +32,7 @@
 | ------------------- | ---------------------------------------------------- | --------------------------------------------- |
 | `image.repository`  | The repository to use for the Config Manager image   | `ghcr.io/cdecatapult/soniclabs-configmanager` |
 | `image.pullPolicy`  | The pull policy to use for the Config Manager image  | `Always`                                      |
-| `image.tag`         | The tag to use for the Config Manager image          | `v1.1.2`                                      |
+| `image.tag`         | The tag to use for the Config Manager image          | `v1.1.3`                                      |
 | `image.pullSecrets` | The pull secrets to use for the Config Manager image | `["soniclabs"]`                               |
 
 ### ConfigManager Ingress parameters
