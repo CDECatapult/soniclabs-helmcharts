@@ -1,8 +1,8 @@
 apiVersion: v2
 name: deploymanager
-appVersion: 1.1.3
+appVersion: 1.4.0
 description: A generated Helm Chart for Soniclabs T&M deploymanager
-version: 1.0.3
+version: 1.0.4
 type: application
 maintainers:
   - name: cdecatapult

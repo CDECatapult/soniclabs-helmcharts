@@ -36,7 +36,7 @@
 | ------------------- | ----------------------------------------------------- | ---------------------------------------------- |
 | `image.repository`  | The repository to use for the Results Manager image   | `ghcr.io/cdecatapult/soniclabs-resultsmanager` |
 | `image.pullPolicy`  | The pull policy to use for the Results Manager image  | `Always`                                       |
-| `image.tag`         | The tag to use for the Results Manager image          | `v1.3.0`                                       |
+| `image.tag`         | The tag to use for the Results Manager image          | `v1.3.1`                                       |
 | `image.pullSecrets` | The pull secrets to use for the Results Manager image | `["soniclabs"]`                                |
 
 ### ResultsManager Ingress parameters
