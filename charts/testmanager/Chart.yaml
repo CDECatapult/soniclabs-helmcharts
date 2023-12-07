@@ -1,8 +1,8 @@
 apiVersion: v2
 name: testmanager
-appVersion: 0.3.4
+appVersion: 0.3.6
 description: A generated Helm Chart for Soniclabs T&M testmanager
-version: 1.0.10
+version: 1.0.11
 type: application
 maintainers:
   - name: cdecatapult
