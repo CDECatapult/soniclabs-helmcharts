@@ -46,7 +46,7 @@ blahblahblahblah
 | ------------------- | -------------------------------------------------- | ---------------------------------------------- |
 | `image.repository`  | The repository to use for the Test Manager image   | `ghcr.io/cdecatapult/soniclabs-testmanager-ts` |
 | `image.pullPolicy`  | The pull policy to use for the Test Manager image  | `Always`                                       |
-| `image.tag`         | The tag to use for the Test Manager image          | `v0.3.4`                                       |
+| `image.tag`         | The tag to use for the Test Manager image          | `v0.3.6`                                       |
 | `image.pullSecrets` | The pull secrets to use for the Test Manager image | `["soniclabs"]`                                |
 
 ### TestManager Ingress parameters
