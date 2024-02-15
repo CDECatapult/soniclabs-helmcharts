@@ -5,7 +5,7 @@
 ### TestManager Parameters
 
 | Name                                  | Description                                                             | Value                                                                            |
-| ------------------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| ------------------------------------- |-------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 | `config.replicaCount`                 | The amount of containers to run                                         | `1`                                                                              |
 | `config.type`                         | The type of service to create                                           | `LoadBalancer`                                                                   |
 | `config.appPort`                      | The port to expose the service and application on                       | `8000`                                                                           |
@@ -15,7 +15,8 @@
 | `config.logLevel`                     | The log level to use for the application                                | `debug`                                                                          |
 | `config.rtcPort`                      | The port of the Viavi RTC                                               | `5099`                                                                           |
 | `config.tmaPath`                      | The path on the "Control Host" to use to execute the TMA.               | `C:/Program Files (x86)/VIAVI/TM500/5G NR - NLA 6.16.0/Test Mobile Application/` |
-| `config.sshKey`                       | The SSH key to use for accessing ORAN components                        | `blahblah
+| `config.sshKey`                       | The SSH key to use for accessing ORAN components                        | `blahblah                                                                        
+| `config.protocolsFilePath`            | The location of the protocols file that is generated.                   | `./`                                                                             |
 blahblahblah
 blahblahblahblah
 `                                        |
