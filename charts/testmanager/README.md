@@ -14,6 +14,7 @@
 | `config.debug`                        | Whether or not to enable debug mode for the application                 | `False`                                                                          |
 | `config.logLevel`                     | The log level to use for the application                                | `debug`                                                                          |
 | `config.rtcPort`                      | The port of the Viavi RTC                                               | `5099`                                                                           |
+| `config.protocolsFilePath`            | The location of the Protocols File                                      | `./`                                                                             |
 | `config.tmaPath`                      | The path on the "Control Host" to use to execute the TMA.               | `C:/Program Files (x86)/VIAVI/TM500/5G NR - NLA 6.16.0/Test Mobile Application/` |
 | `config.sshKey`                       | The SSH key to use for accessing ORAN components                        | `blahblah
 blahblahblah
@@ -46,7 +47,7 @@ blahblahblahblah
 | ------------------- | -------------------------------------------------- | ---------------------------------------------- |
 | `image.repository`  | The repository to use for the Test Manager image   | `ghcr.io/cdecatapult/soniclabs-testmanager-ts` |
 | `image.pullPolicy`  | The pull policy to use for the Test Manager image  | `Always`                                       |
-| `image.tag`         | The tag to use for the Test Manager image          | `v0.3.6`                                       |
+| `image.tag`         | The tag to use for the Test Manager image          | `v0.4.22`                                      |
 | `image.pullSecrets` | The pull secrets to use for the Test Manager image | `["soniclabs"]`                                |
 
 ### TestManager Ingress parameters
