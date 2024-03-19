@@ -14,8 +14,10 @@
 | `config.debug`                        | Whether or not to enable debug mode for the application                 | `False`                                                                          |
 | `config.logLevel`                     | The log level to use for the application                                | `debug`                                                                          |
 | `config.rtcPort`                      | The port of the Viavi RTC                                               | `5099`                                                                           |
-| `config.protocolsFilePath`            | The location of the Protocols File                                      | `./`                                                                             |
-| `config.tmaPath`                      | The path on the "Control Host" to use to execute the TMA.               | `C:/Program Files (x86)/VIAVI/TM500/5G NR - NLA 6.16.0/Test Mobile Application/` |
+| `config.protocolsFilePath`            | The location of the Protocols File                                      | `./tmp`                                                                          |
+| `config.viaviPollIntervalSeconds`     | The Viavi polling interval in seconds.                                  | `10`                                                                             |
+| `config.viaviKpiStartDelaySeconds`    | The Viavi start delay in seconds.                                       | `30`                                                                             |
+| `config.tmaPath`                      | The path on the "Control Host" to use to execute the TMA.               | `C:/Program Files (x86)/VIAVI/TM500/5G NR - NLA 6.21.0/Test Mobile Application/` |
 | `config.sshKey`                       | The SSH key to use for accessing ORAN components                        | `blahblah
 blahblahblah
 blahblahblahblah
@@ -47,7 +49,7 @@ blahblahblahblah
 | ------------------- | -------------------------------------------------- | ---------------------------------------------- |
 | `image.repository`  | The repository to use for the Test Manager image   | `ghcr.io/cdecatapult/soniclabs-testmanager-ts` |
 | `image.pullPolicy`  | The pull policy to use for the Test Manager image  | `Always`                                       |
-| `image.tag`         | The tag to use for the Test Manager image          | `v0.4.40`                                      |
+| `image.tag`         | The tag to use for the Test Manager image          | `v0.4.42`                                      |
 | `image.pullSecrets` | The pull secrets to use for the Test Manager image | `["soniclabs"]`                                |
 
 ### TestManager Ingress parameters
