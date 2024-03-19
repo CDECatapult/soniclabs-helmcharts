@@ -14,7 +14,7 @@
 | `config.debug`                        | Whether or not to enable debug mode for the application                 | `False`                                                                          |
 | `config.logLevel`                     | The log level to use for the application                                | `debug`                                                                          |
 | `config.rtcPort`                      | The port of the Viavi RTC                                               | `5099`                                                                           |
-| `config.protocolsFilePath`            | The location of the Protocols File                                      | `./tmp`                                                                          |
+| `config.protocolsFilePath`            | The location of the Protocols File                                      | `./`                                                                             |
 | `config.viaviPollIntervalSeconds`     | The Viavi polling interval in seconds.                                  | `10`                                                                             |
 | `config.viaviKpiStartDelaySeconds`    | The Viavi start delay in seconds.                                       | `30`                                                                             |
 | `config.tmaPath`                      | The path on the "Control Host" to use to execute the TMA.               | `C:/Program Files (x86)/VIAVI/TM500/5G NR - NLA 6.21.0/Test Mobile Application/` |
