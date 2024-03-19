@@ -18,7 +18,7 @@ config:
   ## @param config.rtcPort The port of the Viavi RTC
   rtcPort: 5099
   ## @param config.protocolsFilePath The location of the Protocols File
-  protocolsFilePath: ./tmp
+  protocolsFilePath: ./
   ## @param config.viaviPollIntervalSeconds The Viavi polling interval in seconds.
   viaviPollIntervalSeconds: 10
   ## @param config.viaviKpiStartDelaySeconds The Viavi start delay in seconds.
