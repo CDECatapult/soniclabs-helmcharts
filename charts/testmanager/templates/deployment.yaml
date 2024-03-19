@@ -102,6 +102,10 @@ spec:
               value: {{ .Values.config.pcapStorage.path | quote }}
             - name: PROTOCOLS_FILE_PATH
               value: {{ .Values.config.protocolsFilePath | quote }}
+            - name: VIAVI_POLL_INTERVAL_SECONDS
+              value: {{ .Values.config.viaviPollIntervalSeconds | quote }}
+            - name: VIAVI_KPI_START_DELAY_SECONDS
+              value: {{ .Values.config.viaviKpiStartDelaySeconds | quote }}
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:

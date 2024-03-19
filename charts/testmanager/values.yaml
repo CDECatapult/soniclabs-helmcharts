@@ -18,9 +18,13 @@ config:
   ## @param config.rtcPort The port of the Viavi RTC
   rtcPort: 5099
   ## @param config.protocolsFilePath The location of the Protocols File
-  protocolsFilePath: ./
+  protocolsFilePath: ./tmp
+  ## @param config.viaviPollIntervalSeconds The Viavi polling interval in seconds.
+  viaviPollIntervalSeconds: 10
+  ## @param config.viaviKpiStartDelaySeconds The Viavi start delay in seconds.
+  viaviKpiStartDelaySeconds: 30
   ## @param config.tmaPath The path on the "Control Host" to use to execute the TMA.
-  tmaPath: 'C:/Program Files (x86)/VIAVI/TM500/5G NR - NLA 6.16.0/Test Mobile Application/'
+  tmaPath: 'C:/Program Files (x86)/VIAVI/TM500/5G NR - NLA 6.21.0/Test Mobile Application/'
   ## @param config.sshKey The SSH key to use for accessing ORAN components
   sshKey: |
     blahblah
