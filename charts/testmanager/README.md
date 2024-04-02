@@ -4,44 +4,43 @@
 
 ### TestManager Parameters
 
-| Name                                  | Description                                                             | Value                                                                            |
-| ------------------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `config.replicaCount`                 | The amount of containers to run                                         | `1`                                                                              |
-| `config.type`                         | The type of service to create                                           | `LoadBalancer`                                                                   |
-| `config.appPort`                      | The port to expose the service and application on                       | `8000`                                                                           |
-| `config.nodePort`                     | The nodePort to use if the the service type is LoadBalancer or NodePort | `30342`                                                                          |
-| `config.commonAnnotations`            | The annotations to set on the Test Manager application                  | `{}`                                                                             |
-| `config.debug`                        | Whether or not to enable debug mode for the application                 | `False`                                                                          |
-| `config.logLevel`                     | The log level to use for the application                                | `debug`                                                                          |
-| `config.rtcPort`                      | The port of the Viavi RTC                                               | `5099`                                                                           |
-| `config.protocolsFilePath`            | The location of the Protocols File                                      | `./`                                                                             |
-| `config.viaviPollIntervalSeconds`     | The Viavi polling interval in seconds.                                  | `10`                                                                             |
-| `config.viaviKpiStartDelaySeconds`    | The Viavi start delay in seconds.                                       | `30`                                                                             |
-| `config.tmaPath`                      | The path on the "Control Host" to use to execute the TMA.               | `C:/Program Files (x86)/VIAVI/TM500/5G NR - NLA 6.21.0/Test Mobile Application/` |
+| Name                                  | Description                                                             | Value                                                                           |
+| ------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `config.replicaCount`                 | The amount of containers to run                                         | `1`                                                                             |
+| `config.type`                         | The type of service to create                                           | `LoadBalancer`                                                                  |
+| `config.appPort`                      | The port to expose the service and application on                       | `8000`                                                                          |
+| `config.nodePort`                     | The nodePort to use if the the service type is LoadBalancer or NodePort | `30342`                                                                         |
+| `config.commonAnnotations`            | The annotations to set on the Test Manager application                  | `{}`                                                                            |
+| `config.debug`                        | Whether or not to enable debug mode for the application                 | `False`                                                                         |
+| `config.logLevel`                     | The log level to use for the application                                | `debug`                                                                         |
+| `config.rtcPort`                      | The port of the Viavi RTC                                               | `5099`                                                                          |
+| `config.protocolsFilePath`            | The location of the Protocols File                                      | `.`                                                                             |
+| `config.viaviPollIntervalSeconds`     | The Viavi polling interval in seconds.                                  | `10`                                                                            |
+| `config.tmaPath`                      | The path on the "Control Host" to use to execute the TMA.               | `C:/Program Files (x86)/VIAVI/TM500/5G NR - NLA 7.3.0/Test Mobile Application/` |
 | `config.sshKey`                       | The SSH key to use for accessing ORAN components                        | `blahblah
 blahblahblah
 blahblahblahblah
-`                                        |
-| `config.pcapStorage.accessMode`       | The access mode to use for the PCAP storage PVC                         | `ReadWriteMany`                                                                  |
-| `config.pcapStorage.path`             | The path to use for the PCAP storage PVC                                | `/mnt/pcaps`                                                                     |
-| `config.pcapStorage.size`             | The size to use for the PCAP storage PVC                                | `10Gi`                                                                           |
-| `config.pcapStorage.storageClassName` | The storage class to use for the PCAP storage PVC                       | `azurefile`                                                                      |
-| `config.gui.host`                     | The hostname of the GUI service                                         | `portal`                                                                         |
-| `config.gui.port`                     | The port of the GUI service                                             | `8000`                                                                           |
-| `config.sma.host`                     | The hostname of the Suite Manager service                               | `suitemanager`                                                                   |
-| `config.sma.port`                     | The port of the Suite Manager service                                   | `8000`                                                                           |
-| `config.cma.host`                     | The hostname of the Config Manager service                              | `configmanager`                                                                  |
-| `config.cma.port`                     | The port of the Config Manager service                                  | `8000`                                                                           |
-| `config.rma.host`                     | The hostname of the Results Manager service                             | `resultsmanager`                                                                 |
-| `config.rma.port`                     | The port of the Results Manager service                                 | `8000`                                                                           |
-| `config.apg.host`                     | The hostname of the API Gateway service                                 | `apigateway`                                                                     |
-| `config.apg.port`                     | The port of the API Gateway service                                     | `8000`                                                                           |
-| `config.dma.host`                     | The hostname of the Deploy Manager service                              | `deploymanager`                                                                  |
-| `config.dma.port`                     | The port of the Deploy Manager service                                  | `8000`                                                                           |
-| `config.controlHost`                  | The hostname for the the Control TMA Host                               | `example`                                                                        |
-| `config.controlShare`                 | The name of the Samba Sharename on the Control TMA Host                 | `Public`                                                                         |
-| `config.controlUsername`              | The username to use for the Control TMA Host                            | `username`                                                                       |
-| `config.controlPassword`              | The password to use for the Control TMA Host                            | `password`                                                                       |
+`                                       |
+| `config.pcapStorage.accessMode`       | The access mode to use for the PCAP storage PVC                         | `ReadWriteMany`                                                                 |
+| `config.pcapStorage.path`             | The path to use for the PCAP storage PVC                                | `/mnt/pcaps`                                                                    |
+| `config.pcapStorage.size`             | The size to use for the PCAP storage PVC                                | `10Gi`                                                                          |
+| `config.pcapStorage.storageClassName` | The storage class to use for the PCAP storage PVC                       | `azurefile`                                                                     |
+| `config.gui.host`                     | The hostname of the GUI service                                         | `portal`                                                                        |
+| `config.gui.port`                     | The port of the GUI service                                             | `8000`                                                                          |
+| `config.sma.host`                     | The hostname of the Suite Manager service                               | `suitemanager`                                                                  |
+| `config.sma.port`                     | The port of the Suite Manager service                                   | `8000`                                                                          |
+| `config.cma.host`                     | The hostname of the Config Manager service                              | `configmanager`                                                                 |
+| `config.cma.port`                     | The port of the Config Manager service                                  | `8000`                                                                          |
+| `config.rma.host`                     | The hostname of the Results Manager service                             | `resultsmanager`                                                                |
+| `config.rma.port`                     | The port of the Results Manager service                                 | `8000`                                                                          |
+| `config.apg.host`                     | The hostname of the API Gateway service                                 | `apigateway`                                                                    |
+| `config.apg.port`                     | The port of the API Gateway service                                     | `8000`                                                                          |
+| `config.dma.host`                     | The hostname of the Deploy Manager service                              | `deploymanager`                                                                 |
+| `config.dma.port`                     | The port of the Deploy Manager service                                  | `8000`                                                                          |
+| `config.controlHost`                  | The hostname for the the Control TMA Host                               | `example`                                                                       |
+| `config.controlShare`                 | The name of the Samba Sharename on the Control TMA Host                 | `Public`                                                                        |
+| `config.controlUsername`              | The username to use for the Control TMA Host                            | `username`                                                                      |
+| `config.controlPassword`              | The password to use for the Control TMA Host                            | `password`                                                                      |
 
 ### TestManager Image Parameters
 
@@ -49,7 +48,7 @@ blahblahblahblah
 | ------------------- | -------------------------------------------------- | ---------------------------------------------- |
 | `image.repository`  | The repository to use for the Test Manager image   | `ghcr.io/cdecatapult/soniclabs-testmanager-ts` |
 | `image.pullPolicy`  | The pull policy to use for the Test Manager image  | `Always`                                       |
-| `image.tag`         | The tag to use for the Test Manager image          | `v0.4.42`                                      |
+| `image.tag`         | The tag to use for the Test Manager image          | `v0.5.1`                                       |
 | `image.pullSecrets` | The pull secrets to use for the Test Manager image | `["soniclabs"]`                                |
 
 ### TestManager Ingress parameters
