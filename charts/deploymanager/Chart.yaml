@@ -1,6 +1,6 @@
 apiVersion: v2
 name: deploymanager
-appVersion: 1.4.0
+appVersion: 1.5.0
 description: A generated Helm Chart for Soniclabs T&M deploymanager
 version: 1.0.5
 type: application
