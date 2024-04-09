@@ -104,8 +104,6 @@ spec:
               value: {{ .Values.config.protocolsFilePath | quote }}
             - name: VIAVI_POLL_INTERVAL_SECONDS
               value: {{ .Values.config.viaviPollIntervalSeconds | quote }}
-            - name: VIAVI_KPI_START_DELAY_SECONDS
-              value: {{ .Values.config.viaviKpiStartDelaySeconds | quote }}
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
