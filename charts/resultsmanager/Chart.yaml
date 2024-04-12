@@ -1,8 +1,8 @@
 apiVersion: v2
 name: resultsmanager
-appVersion: 1.5.0
+appVersion: 1.5.1
 description: A generated Helm Chart for Soniclabs T&M resultsmanager
-version: 1.0.7
+version: 1.0.8
 type: application
 maintainers:
   - name: cdecatapult
